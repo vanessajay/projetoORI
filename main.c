@@ -92,15 +92,16 @@ void imprime(Lista *lista){
 
 int main(int argc, char *argv[]) {
 
+/*
 Lista *lista, *ListaArq;
 FILE *arquivo, *auxArq, *stopWord;
 char palavra[50];
 char word[50];
 lista = criaLista();
 int contador = 0;
-
+*/
  /* Abre o arquivo para leitura */
-arquivo = fopen(argv[1], "r");
+/*arquivo = fopen(argv[1], "r");
 stopWord = fopen(argv[2], "r");
 
 
@@ -132,6 +133,57 @@ imprime(lista);
 printf("\n\n");
 
 getchar();
+
+*/
+
+
+FILE *base, *stopwords, *doc;
+char termo [500], nomeDoc[500];
+int contador = 1;
+
+stopwords = fopen(argv[2], "r");
+
+if (stopwords == NULL)
+   printf("Erro, não foi possivel abrir o arquivo de stopwords\n");
+
+else{
+
+    while ( !feof(stopwords)){
+        fscanf(stopwords, "%s", termo);
+        // insere a ser implementado
+        //insere(listaStopWords, termo);
+    }
+}
+
+base = fopen(argv[1], "r");
+
+if (base == NULL)
+   printf("Erro, não foi possivel abrir o arquivo da Base\n");
+
+else{
+
+    while ( !feof(base)){
+        fscanf(base, "%s", nomeDoc);
+
+        doc = fopen(nomeDoc, "r");
+
+        while ( !feof(doc)){
+            fscanf(doc, "%s", termo);
+
+            // testar se o termo aparece em listaStopWords
+
+            if(/*se não aparecer*/)
+                //inserir(lista, termo, contador)
+
+            contador ++;
+        }
+
+    }
+}
+
+
+
+
 
 
 
